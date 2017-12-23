@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Pdfing:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Pdfing.war">
+      <element id="artifact" artifact-name="Pdfing:war exploded" />
+    </root>
+  </artifact>
+</component>
