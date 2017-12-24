@@ -60,9 +60,8 @@ public class MainDao {
         return rowCount;
     }
 
-    public String getPageData(int pageindex, int row) {
-        String json = "{\"state\": 0}";
-        ObjectMapper mapper = new ObjectMapper();
+    //获取所有数据
+    public List getPageData(int pageindex, int row) {
         List<Toutiao> list = new ArrayList<Toutiao>();
         try {
             conn = DBFactory.INSTANCE.getConnection();
@@ -73,15 +72,13 @@ public class MainDao {
                 Toutiao toutiao = new Toutiao((int) rs.getLong(1), rs.getString(2), rs.getString(3), (int) rs.getLong(4), rs.getString(5));
                 list.add(toutiao);
             }
-            json = mapper.writeValueAsString(list);
             ps.close();
             rs.close();
         } catch (Exception e) {
-            json = "{\"state\": 0}";
             System.out.println("系统错误2" + e);
         } finally {
             DBFactory.INSTANCE.closeConnection(conn);
         }
-        return json;
+        return list;
     }
 }

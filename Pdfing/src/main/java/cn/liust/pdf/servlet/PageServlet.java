@@ -18,6 +18,8 @@ import cn.liust.pdf.util.Util;
 public class PageServlet extends HttpServlet {
     ObjectMapper mapper = new ObjectMapper();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/json; charset=UTF-8");
         Util util = new Util();
         String data = util.getBodyData(request);
         Map map = mapper.readValue(data, Map.class);

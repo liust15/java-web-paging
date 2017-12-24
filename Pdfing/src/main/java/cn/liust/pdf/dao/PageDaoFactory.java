@@ -1,5 +1,7 @@
 package cn.liust.pdf.dao;
 
+import java.util.List;
+
 public class PageDaoFactory {
     public static PageDaoFactory INSTANCE;
 
@@ -12,7 +14,7 @@ public class PageDaoFactory {
     }
 
     public String getPageData(int pageindex, int row) {
-        return new MainDao().getPageData(pageindex, row);
+        return new PageDao().getPageData(pageindex, row);
     }
 
 }
